@@ -1,2 +1,2 @@
-# techdegree-unit1
+# techdegree Project 1
  unit 1 project
