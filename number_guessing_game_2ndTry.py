@@ -29,7 +29,7 @@ while True:
         guess = int(input("Please pick a number between 1 and 10: "))
 #        print(guess)
     except ValueError:
-        print(f"Are you learning impaired?  {name}, THROUGH 1 AND 10!: ")
+        print(f"Are you learning impaired?  {name}, THROUGH 1 and 10!: ")
 #        guess = int(input("Please pick a number between 1 and 10: "))
         continue
     break
@@ -45,14 +45,13 @@ guesses = 0
 guesses = guesses +1
 
 # STEP 5:  Account for potential errors.  < 1, > 10, 1,0, 1.0, one...
-#  A vid on tube said to use isdigit, but I don't recall being taught that
-# I used another while loop above
+  # A vid on tube said to use isdigit, but I don't recall being taught that
+  # I used another while loop above
 
 while guess != number:
     if guess < 1 or guess > 10:
         print(f"{guess} is outside the scope.")
         guess = int(input("Please pick a number between 1 and 10:  "))
-# I think I want to start the try block here
     elif guess < number:
 #       print("Higher")
         guess = int(input("Higher:  "))
@@ -91,6 +90,10 @@ it's time to move onto Unit 2.
 
 
 """
+This function may work for play again, but the try block doesn't belong here (as was figured out in the most current attempt)
+Play with this some more after I get more familiar with all this
+
+
 # def play_game():
 guesses = 0
 guesses = guesses +1
