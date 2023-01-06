@@ -3,7 +3,7 @@
 print("-----------------------------------\nThe Number Guessing Game\n-----------------------------------")
 # Don't allow a blank name
 name = input("Please tell us your coolest nickname: ")
-while name == "":
+while name == "" or name == " " or name == "  " or name == "   ":
     name = input("That was blank --- please tell us your coolest nickname: ")
 print(f"Cool {name}!  Welcome to the gaunlet.")
 
@@ -15,25 +15,20 @@ print(f"Cool {name}!  Welcome to the gaunlet.")
 import random
 
 number = random.randint(1,10)
-# print(number)
+print(number)
 
 # num = random.randrange(1,11)
 # print(num)
+
+guesses = 0
+guesses = guesses + 1
+guess = int(input("Please pick a (whole) number between 1 and 10:  "))
+#        print(guess)
 
 
 # STEP 3:  While loop for guess till correct
 # This step includes multiple parts:
 # You need to prompt the player for a guess.
-while True:
-    try:
-        guess = int(input("Please pick a number between 1 and 10: "))
-#        print(guess)
-    except ValueError:
-        print(f"Are you learning impaired?  {name}, THROUGH 1 and 10!: ")
-#        guess = int(input("Please pick a number between 1 and 10: "))
-        continue
-    break
-# print(guess)
 
 # You need to check their guess to see if it matches the random number.
 # If the player is not correct, you need to ask them for a guess again.
@@ -41,39 +36,53 @@ while True:
 
 # STEP 4:  Tell user how many tries it took to guess the number correctly
 # use guesses = guesses + 1 outside the while loop and += in if/else statement
-guesses = 0
-guesses = guesses +1
+
 
 # STEP 5:  Account for potential errors.  < 1, > 10, 1,0, 1.0, one...
   # A vid on tube said to use isdigit, but I don't recall being taught that
   # I used another while loop above
 
-while guess != number:
-    if guess < 1 or guess > 10:
-        print(f"{guess} is outside the scope.")
-        guess = int(input("Please pick a number between 1 and 10:  "))
-    elif guess < number:
-#       print("Higher")
-        guess = int(input("Higher:  "))
-        guesses += 1
-    elif guess > number:
-#       print("Lower")
-        guess = int(input("Lower:  "))
-        guesses += 1
 # I want exceptions for , (like 1,000), . (like 1.0), and one (string input by user) except:
 #    except ValueError:
 #        guess = int(print("You must type an integer 1 through 10, no decimals, commas, or strings:  "))
 
+
+while guess != number:
+    try:
+        guess = int(input("Please pick a (whole) number between 1 and 10:  "))
+        if guess < 1 or guess > 10:
+            print(f"{guess} is outside the scope.")
+        elif guess < number:
+            guess = int(input("Higher:  "))
+            guesses += 1
+        elif guess > number:
+            guess = int(input("Lower:  "))
+            guesses += 1
+    except ValueError:
+        print("Integer please.")
+#        guess = int(input("Please pick a number between 1 and 10: "))
+#        continue
+#     break
 else:
     print("Nailed it!")
     if guesses == 1:
         print("It took you",guesses,"try","\nGame Over.")
     else:
         print("It took you",guesses,"tries","\nGame Over.")
+# break
+
+"""while true:
+    answer = input("Would you like to play again? (yes/no)")
+    if answer.lower == "yes":
+        # I think I need a function here.  def play_again...
+        # we'll work on that more another day
+"""
+
+# print(guess)
 
 """
 Was going to go for exceed expectations, but I found the highscore too hard to figure out.  
-I was spinning my wheels and didn't want to cheat.  My plan is to edit the file on github 
+I was spinning my wheels.  My plan is to edit the file on github 
 when I learn it, then I'll have a more robust version of the code in my portfolio.  
 For now, I've checked all the boxes to meet expectations, so 
 it's time to move onto Unit 2. 
