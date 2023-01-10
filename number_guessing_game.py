@@ -57,6 +57,8 @@ def guessing_game():
 #    except ValueError as err:
 #        print(err,"---> INTEGERS (1-10) ONLY!")
 #        pass
+    except NameError:
+        print("Whole numbers only")
     else:
         print(f"Nailed it, {name}!")
         if guesses == 1:
