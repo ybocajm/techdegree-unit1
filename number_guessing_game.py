@@ -24,7 +24,6 @@ NOTE:  If you strongly prefer to work locally on your own computer, you can tota
     ( You can add more features/enhancements if you'd like to. )
 """
 
-
 import random
 import time
 
@@ -40,10 +39,9 @@ def guessing_game():
     number = random.randint(1,10) # alt number = random.randrange(1,11)
 #    print(number)
     guess = ""
-    try:
-        while guess != number:
+    while guess != number:
+        try:
             guess = int(input(f"{name}, please pick a number between 1 and 10:  "))
-    #        guesses += 1
             if guess < 1 or guess > 10:
                 print("freakin frack")
             elif guess < number:
@@ -52,13 +50,16 @@ def guessing_game():
             elif guess > number:
                 guesses += 1
                 print("Lower")
-    except ValueError:
-        print("Integers only")
+                continue
+        except ValueError:
+            print("Integers only.")
+            continue
 #    except ValueError as err:
 #        print(err,"---> INTEGERS (1-10) ONLY!")
 #        pass
-    except NameError:
-        print("Whole numbers only")
+        except NameError:
+            print("Integers only.")
+            continue
     else:
         print(f"Nailed it, {name}!")
         if guesses == 1:
@@ -86,29 +87,6 @@ if answer.lower() == "y":
     guessing_game()
 else:
     print("h.a.n.d.")
-
-
-
-#    else:
-#        if guess < number:
-#            guess = int(input("Higher:  "))
-    #        guesses += 1
- #       elif guess > number:
-    #       print("Lower")
-#            guess = int(input("Lower:  "))
-#        guesses += 1
-# I want exceptions for , (like 1,000), . (like 1.0), and one (string input by user) except:
-#    except ValueError:
-#        guess = int(print("You must type an integer 1 through 10, no decimals, commas, or strings:  "))
-
-
-"""
-Was going to go for exceed expectations, but I found the highscore too hard to figure out.  
-I was spinning my wheels and didn't want to cheat.  My plan is to edit the file on github 
-when I learn it, then I'll have a more robust version of the code in my portfolio.  
-For now, I've checked all the boxes to meet expectations, so 
-it's time to move onto Unit 2. 
-"""
 
 
 
